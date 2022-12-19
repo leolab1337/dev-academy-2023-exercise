@@ -32,3 +32,28 @@ Open it and change values if needed:
 Go into the frontend & backend folders one by one and write to the console:
 
 <code>npm i</code>
+
+4. Add data to the data folders
+
+  Download files:
+  
+  https://dev.hsl.fi/citybikes/od-trips-2021/2021-05.csv <br/>
+  https://dev.hsl.fi/citybikes/od-trips-2021/2021-06.csv <br/>
+  https://dev.hsl.fi/citybikes/od-trips-2021/2021-07.csv <br/>
+  
+  Put them to: 
+  
+  backend/data/csv/journeys
+  
+  **Important!** Delete addDatahere file
+
+  Download file:
+  
+  https://opendata.arcgis.com/datasets/726277c507ef4914b0aec3cbcfcbfafc_0.csv
+  
+   Put it to: 
+   
+   backend/data/csv/bicycle-stations-dataset
+   
+   **Important!** Delete addDatahere file
+  
