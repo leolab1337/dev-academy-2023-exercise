@@ -1,0 +1,25 @@
+.listItemRelative{
+    position: relative;
+    cursor: pointer;
+}
+
+.listItem{
+    background-color: white;
+}
+
+.listItem:hover{
+    background-color: darkcyan;
+}
+
+.deleteListItem{
+    position: absolute;
+    left: 100%;
+    transform: scale(1.5);
+    color:red;
+    cursor: pointer;
+}
+
+.deleteListItem:hover{
+    transform: scale(2.0);
+}
+
