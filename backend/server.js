@@ -1,5 +1,6 @@
-require("dotenv").config({path: '../.env'});
+require("dotenv").config({path: './.env'});
 const express = require('express');
+const cors = require('cors');
 const path = require("path");
 const CSVHandler = require('./src/services/CsvHandler');
 const csvHandler = new CSVHandler();
@@ -14,6 +15,9 @@ app.use(
     })
 );
 app.use(express.static(path.join(__dirname, "backend")));
+
+app.use(cors({credentials: true, origin: process.env.CORS_ORIGIN}));
+
 
 
 app.use("/stationsCrud", require("./src/routes/stationsCrud"));
