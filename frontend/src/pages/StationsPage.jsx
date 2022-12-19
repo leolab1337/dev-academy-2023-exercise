@@ -1,10 +1,14 @@
 import React from 'react';
 import {Container} from "react-bootstrap";
+import StationsMain from "../components/stations/StationsMain";
 
 const StationsPage = () => {
     return (
         <Container>
             it is stations page
+
+            <StationsMain/>
+
         </Container>
     );
 };
