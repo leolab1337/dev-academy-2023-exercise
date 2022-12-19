@@ -4,6 +4,7 @@ import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Error from "../pages/Error";
 import JourneysPage from "../pages/JourneysPage";
 import StationsPage from "../pages/StationsPage";
+import OneStationPage from "../pages/OneStationPage";
 
 const RouterComponent = () => {
     return (
@@ -16,6 +17,8 @@ const RouterComponent = () => {
                 />
                 <Route path="/journeys"  element={<JourneysPage/>}/>
                 <Route path="stations"  element={<StationsPage/>}/>
+
+                <Route path="stations/:id"  element={<OneStationPage/>}/>
                 <Route path="404"  element={<Error/>}/>
                 <Route
                     path="*"
