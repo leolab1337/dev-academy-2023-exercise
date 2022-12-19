@@ -20,7 +20,7 @@ app.use(cors({credentials: true, origin: process.env.CORS_ORIGIN}));
 
 
 
-app.use("/stationsCrud", require("./src/routes/stationsCrud"));
+app.use("/stations", require("./src/routes/stationsCrud"));
 
 
 
