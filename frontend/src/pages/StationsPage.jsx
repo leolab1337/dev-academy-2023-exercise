@@ -5,8 +5,7 @@ import StationsMain from "../components/stations/StationsMain";
 const StationsPage = () => {
     return (
         <Container>
-            it is stations page
-
+            It is stations page,
             <StationsMain/>
 
         </Container>
