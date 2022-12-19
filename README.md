@@ -47,13 +47,4 @@ Go into the frontend & backend folders one by one and write to the console:
   
   **Important!** Delete addDatahere file
 
-  Download file:
-  
-  https://opendata.arcgis.com/datasets/726277c507ef4914b0aec3cbcfcbfafc_0.csv
-  
-   Put it to: 
-   
-   backend/data/csv/bicycle-stations-dataset
-   
-   **Important!** Delete addDatahere file
   
