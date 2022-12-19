@@ -30,4 +30,5 @@ Open it and change values if needed:
 3. Install npm packages
 
 Go into the frontend & backend folders one by one and write to the console:
+
 <code>npm i</code>
