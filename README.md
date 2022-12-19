@@ -46,5 +46,10 @@ Go into the frontend & backend folders one by one and write to the console:
   backend/data/csv/journeys
   
   **Important!** Delete addDatahere file
+  
+  backend/data/csv/bicycle-stations-dataset has already file inside, and it accepts another files with same format if it is desired 
+  
+  5. 
+  
 
   
