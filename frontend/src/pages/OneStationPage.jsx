@@ -6,8 +6,7 @@ const OneStationPage = () => {
     return (
         <Container>
             <GoBackButton/>
-             <br/>
-             <br/>
+            <h1 className='d-flex justify-content-center'>Station info</h1>
             <div className='d-flex justify-content-center'>
                 <OneStation/>
             </div>
