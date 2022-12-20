@@ -25,7 +25,7 @@ postNewStation = async (req,res,next) =>{
      * @type {{Namn: string, Kapasiteet: number, Nimi: string, Stad: string, Address: string, Kaupunki: string, Osoite: string, x: number, y: number, Operaattor: string, ID: number, Name: string}}
      */
     const objectToSave = {
-        "ID" : 0,
+        "ID" : null,
         "Nimi" : '',
         "Namn" : '',
         "Name" : '',
@@ -34,9 +34,9 @@ postNewStation = async (req,res,next) =>{
         "Kaupunki" : '',
         "Stad": '',
         "Operaattor" : '',
-        "Kapasiteet" : 0,
-        "x" : 0,
-        "y" : 0
+        "Kapasiteet" : 10,
+        "x" : 1.1,
+        "y" : 1.1
     }
 
     if(req.body !== null){
@@ -60,6 +60,8 @@ postNewStation = async (req,res,next) =>{
                 throw new Error(res.statusMessage);
             }
 
+
+
             for (const [key, value] of Object.entries(req.body)) {
                 switch (key) {
                     case 'ID':
@@ -72,11 +74,12 @@ postNewStation = async (req,res,next) =>{
                                 else{
                                     const stationByNewId = await stationsCrudService.getStationById(value);
 
-                                    if(stationByNewId && stationByNewId[0].ID.toString() === value){
+                                    if(stationByNewId && stationByNewId[0].ID.toString() === value.toString()){
                                         res.statusCode = 400;
                                         res.statusMessage = 'Such Id is already in use, please change it';
                                         throw new Error(res.statusMessage);
                                     }
+
                                     else{
                                         objectToSave[key] = value;
                                     }
@@ -137,10 +140,16 @@ postNewStation = async (req,res,next) =>{
             }
 
             try{
-                const resp = await stationsCrudService.postNewStation(objectToSave);
-                if(resp){
-                    res.statusCode = 200;
-                    res.result = objectToSave;
+
+                if(objectToSave.ID !== null){
+                    const resp = await stationsCrudService.postNewStation(objectToSave);
+                    if(resp){
+                        res.statusCode = 200;
+                        res.result = objectToSave;
+                    }
+                    else{
+                        res.statusCode = 400;
+                    }
                 }
                 else{
                     res.statusCode = 400;

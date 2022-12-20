@@ -4,15 +4,15 @@ import {Button, Form} from "react-bootstrap";
 const AddNewStation = ({postNewStation}) => {
 
     const defaultObject = {
-        ID : 222,
-        Nimi : "test",
-        Namn : "test",
-        Name : "test",
-        Osoite: "test",
-        Address: "test",
-        Kaupunki : "test",
-        Stad: "test",
-        Operaattor : "test",
+        ID : '',
+        Nimi : "",
+        Namn : "",
+        Name : "",
+        Osoite: "",
+        Address: "",
+        Kaupunki : "",
+        Stad: "",
+        Operaattor : "",
         Kapasiteet : 1,
         x : 1.1,
         y : 1.1
@@ -26,11 +26,6 @@ const AddNewStation = ({postNewStation}) => {
         postNewStation(objectToPost);
         setObjectToPost(defaultObject);
     }
-
-    // useEffect(()=>{
-    //     console.log(objectToPost);
-    // },[objectToPost])
-
 
     return (
         <Form onSubmit={handleSubmit}>

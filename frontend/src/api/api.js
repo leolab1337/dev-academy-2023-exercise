@@ -85,8 +85,6 @@ export const postNewOne = async (url,reqData) => {
     }
     try{
         const resp = await fetch(url, reqOptions);
-        console.log(reqOptions);
-        console.log(resp);
         return resp.json();
     }
     catch (e){

@@ -40,6 +40,9 @@ const StationsMain =  () => {
                     alert('data was successfully added');
                     sendSignal(prevState => !prevState);
                 }
+                else if(r != null){
+                    alert(r.message);
+                }
                 else{
                     alert('some problem with adding data');
                 }
