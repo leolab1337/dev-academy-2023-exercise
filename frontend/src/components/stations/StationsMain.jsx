@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {deleteById, fetchAllData, postNewOne} from "../../api/api";
 import StationList from "./StationList";
-import {Button, Collapse} from "react-bootstrap";
+import {Collapse} from "react-bootstrap";
 import AddNewStation from "./AddNewStation";
 
 
@@ -63,7 +63,7 @@ const StationsMain =  () => {
     },[signal]);
 
 
-    const [openList, setOpenList] = useState(false)
+    const [openList, setOpenList] = useState(true);
     const [openPostNew, setOpenPostNew] = useState(false);
 
     // open/close checker is an one is open another one is closed
