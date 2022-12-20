@@ -12,20 +12,21 @@ When it is done you have a database.
 
 2. Configure .env file
 
-In the root folder you find .env file
-Open it and change values if needed:
+In the root of frontend and backend folders you find .env files
+Open the, and change values if needed:
 
 | Field name            | Description                                                                                                             |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------|
-| DATABASE_DIALECT      | mariadb
+| DATABASE_DIALECT      | mariadb                                                                                                                 |
 | DATABASE_NAME         | name of your database, helsinki_city_bike is default                                                                    |
 | DATABASE_USER         | username of your SQL database                                                                                           |
 | DATABASE_PASSWORD     | password for the username                                                                                               |
 | SERVER_HOST           | hostname, localhost is default                                                                                          |
 | SERVER_PORT           | port number, where you wish to run API , 8080 is default                                                                |
 | CORS_ORIGIN           | base URL of your application = where your application (UI) is running, http://localhost:3000 is default                 |
-| REACT_APP_SERVER_HOST | hostname should be the same as SERVER_HOST, localhost is default (needed for react only)                                |
-| REACT_APP_SERVER_PORT | port number should be the same as SERVER_PORT (needed for react only)                                                   |
+| REACT_APP_SERVER_HOST | hostname should be the same as SERVER_HOST, localhost is default                                                        |
+| REACT_APP_SERVER_PORT | port number should be the same as SERVER_PORT                                                                           |
+| REACT_APP_SERVER_PORT | http://localhost:8080   isdefault                                                                                       |
 
 3. Install npm packages
 
