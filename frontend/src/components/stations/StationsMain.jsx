@@ -20,7 +20,7 @@ const StationsMain =  () => {
     const deleteStationById = (id) => {
         deleteById(`${process.env.REACT_APP_SERVER_URL}/stations/${id}`).then(r=>{
             if(r != null && r.isSuccess){
-                alert('data was successfully deleted');
+                // alert('data was successfully deleted');
                 sendSignal(prevState => !prevState);
             }
             else{
