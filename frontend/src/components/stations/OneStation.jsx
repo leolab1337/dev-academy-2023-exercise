@@ -31,8 +31,6 @@ const OneStation = () => {
         console.log(stationObject.y)
     },[stationObject]);
 
-
-
     return (
         <>
             <div className='d-flex justify-content-start gap-3'>
@@ -45,8 +43,6 @@ const OneStation = () => {
                 {
                     Object.keys(stationObject).length !== 0 && <Map x={stationObject.x} y={stationObject.y}/>
                 }
-
-            {/*<Map x={stationObject.x} y={stationObject.y}/>*/}
             </div>
 
            <br/> <b>{fetchError && fetchError.toString() + '; Possibly problems with backend connection'}</b>
