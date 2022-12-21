@@ -1,4 +1,4 @@
-const mockJourneysImport = require("../../MockValues/mockJourneysUnvalidated");
+const mockJourneysImport = require("../../../MockValues/mockJourneysUnvalidated");
 const mockJourneys = mockJourneysImport['getMockValue'];
 
 /**

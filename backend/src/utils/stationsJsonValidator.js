@@ -1,4 +1,4 @@
-const mockStationsImport = require("../../MockValues/mockStationsUnvalidated");
+const mockStationsImport = require("../../../MockValues/mockStationsUnvalidated");
 const mockStations = mockStationsImport['getMockValue'];
 
 
