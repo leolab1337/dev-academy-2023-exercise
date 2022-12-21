@@ -1,6 +1,5 @@
 import "leaflet/dist/leaflet.css";
-// import styles from './map.module.css'
-import {MapContainer, Marker, CircleMarker, TileLayer} from "react-leaflet";
+import {MapContainer, CircleMarker, TileLayer} from "react-leaflet";
 
 
 const svgMarker = {
@@ -11,7 +10,6 @@ const svgMarker = {
     strokeWeight: 0,
     rotation: 0,
     scale: 2
-    // anchor: new google.maps.Point(15, 30),
 };
 
 
