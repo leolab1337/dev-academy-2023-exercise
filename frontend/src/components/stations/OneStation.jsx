@@ -24,7 +24,7 @@ const OneStation = () => {
                 navigate('/404');
             }
         }).catch(e => setFetchError(e))
-    },[]);
+    },[navigate,stationID]);
 
     useEffect( ()=>{
         console.log(stationObject.x)
