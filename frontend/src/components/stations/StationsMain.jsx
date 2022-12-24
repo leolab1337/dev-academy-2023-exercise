@@ -3,15 +3,16 @@ import {deleteById, fetchAllData, postNewOne} from "../../api/api";
 import StationList from "./StationList";
 import {Collapse} from "react-bootstrap";
 import AddNewStation from "./AddNewStation";
+import {SortByTitle} from "../../utils/SortByTitle";
 
 
 const StationsMain =  () => {
 
-    const [stations,setStations] = useState();
+    const [stations,setStations] = useState([]);
     const [stationsColumns,setStationsColumns] = useState();
     const [fetchError,setFetchError] = useState(null);
-
     const[signal,sendSignal] = useState(false);
+
 
     /**
      *
@@ -53,10 +54,11 @@ const StationsMain =  () => {
 
 
 
+
     useEffect( ()=>{
        fetchAllData(`${process.env.REACT_APP_SERVER_URL}/stations`).then(r=>{
            if( r !== null){
-               setStations(r.result);
+               setStations(r.result)
                setStationsColumns(Object.keys(r.result[0]));
            }
        }).catch(e => setFetchError(e));
@@ -97,7 +99,7 @@ const StationsMain =  () => {
 
             <Collapse in={openList}>
                 <div>
-                <StationList stations={stations} stationsColumns={stationsColumns} deleteStationById={deleteStationById} />
+                <StationList stations={stations} stationsColumns={stationsColumns} deleteStationById={deleteStationById}/>
                 </div>
             </Collapse>
 
