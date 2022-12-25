@@ -19,8 +19,9 @@ app.use(express.static(path.join(__dirname, "backend")));
 app.use(cors({credentials: true, origin: process.env.CORS_ORIGIN}));
 
 
+app.use("/stations", require("./src/routes/stationsRoutes"));
 
-app.use("/stations", require("./src/routes/stationsCrud"));
+app.use("/journeys", require("./src/routes/journeysRoutes"));
 
 
 
@@ -31,16 +32,10 @@ app.get('/', (req, res) => {
 
 app.listen(process.env.SERVER_PORT, () => {
     displayLinks();
-
     // activate it when u need convert csv data to database;
     // csvHandler.saveFilesToDb();
 
-
-
 });
-
-// app.use(require)
-
 
 function displayLinks(){
     console.log("----------------------");
