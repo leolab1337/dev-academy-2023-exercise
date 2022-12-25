@@ -26,6 +26,7 @@ import {OwnPagination} from "../UtilComponents/Pagination";
     const [pageSize, setPageSize] = useState(10);
     const [pageNumber, setPageNumber] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
+    const [validationError,setValidationError] = useState(null);
 
     const [fetchError,setFetchError] = useState(null);
     const[signal,sendSignal] = useState(false);
@@ -71,7 +72,18 @@ import {OwnPagination} from "../UtilComponents/Pagination";
     }
 
     /**Pagination logic*/
-    const handlePageSizeChange = ev => setPageSize(ev.target.value);
+    const handlePageSizeChange = ev => {
+        if(ev.target.value < 1){
+            setValidationError('Value cannot be less than 1');
+        }
+        else if(ev.target.value >100){
+            setValidationError('Value cannot be greater than 100');
+        }
+        else{
+            setValidationError(null);
+            setPageSize(ev.target.value);
+        }
+    };
     const handlePrevPage = _ => setPageNumber(pageNumber - 1);
     const handleNextPage = _ => setPageNumber(pageNumber + 1);
 
@@ -119,17 +131,19 @@ import {OwnPagination} from "../UtilComponents/Pagination";
 
             <Collapse in={openList}>
                 <div>
-                <StationList stations={stations} stationsColumns={stationsColumns} deleteStationById={deleteStationById}/>
                     <div className='mt-3'>
-                    <OwnPagination
-                        pageSize={pageSize}
-                        pageNumber={pageNumber}
-                        totalPages={totalPages}
-                        handlePrevPage={handlePrevPage}
-                        handleNextPage={handleNextPage}
-                        handlePageSizeChange={handlePageSizeChange}
-                    />
+                        <OwnPagination
+                            pageSize={pageSize}
+                            pageNumber={pageNumber}
+                            totalPages={totalPages}
+                            handlePrevPage={handlePrevPage}
+                            handleNextPage={handleNextPage}
+                            handlePageSizeChange={handlePageSizeChange}
+                            error={validationError}
+                        />
                     </div>
+
+                    <StationList stations={stations} stationsColumns={stationsColumns} deleteStationById={deleteStationById}/>
                 </div>
             </Collapse>
 
@@ -140,7 +154,7 @@ import {OwnPagination} from "../UtilComponents/Pagination";
             </Collapse>
 
 
-            <b>{fetchError && fetchError.toString() + '; Possibly problems with backend connection'}</b>
+            <b>{fetchError && fetchError.toString() + '; Possibly there are problems with backend connection'}</b>
         </>
     );
 };
