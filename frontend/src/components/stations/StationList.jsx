@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid';
 import styles from './Stations.module.css'
 import {useLocation, useNavigate} from "react-router";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 
 /**
  * StationList - a functional component that displays a list of stations with the ability to sort by column and delete a station.
@@ -21,7 +21,7 @@ const StationList = ({stations=[],stationsColumns,deleteStationById}) => {
     const [currentTitle,setCurrentTitle] = useState('FID');
     const [isMinToMax,setIsMinToMax] = useState(true);
 
-    const doSort = (newTitle)=>{
+    const doSort = useCallback((newTitle) => {
 
         let sortedStations = [];
 
@@ -47,8 +47,7 @@ const StationList = ({stations=[],stationsColumns,deleteStationById}) => {
         }
         setCurrentTitle(newTitle);
         setStationsLocal(sortedStations);
-    }
-
+    }, [currentTitle, isMinToMax, stationsLocal]);
 
 
     useEffect(()=>{

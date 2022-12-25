@@ -33,9 +33,7 @@ import {OwnPagination} from "../UtilComponents/Pagination";
 
     /**
      * deleteStationById - a function that deletes a station from the server by its ID.
-     *
      * @param {string} id - The ID of the station to be deleted.
-     *
      * @returns {void} - This function does not return a value.
      */
     const deleteStationById = (id) => {
