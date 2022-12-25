@@ -1,7 +1,7 @@
 /**
- *
- * @param url{string}
- * @returns {Promise<any>}
+ *Sends a GET request to the specified URL and returns the response in JSON format.
+ *@param {string} url - The URL to send the request to.
+ *@return {Promise} - A promise that resolves to the JSON response or rejects with an error.
  */
 export const fetchAllData = async (url) => {
 
@@ -24,9 +24,9 @@ export const fetchAllData = async (url) => {
 }
 
 /**
- *
- * @param url{string}
- * @returns {Promise<any>}
+ *  Sends a GET request to the specified URL and returns the response in JSON format.
+ *  @param {string} url - The URL to send the request to.
+ *  @return {Promise} - A promise that resolves to the JSON response or rejects with an error.
  */
 export const fetchOneById = async (url) => {
     const reqOptions = {
@@ -46,9 +46,9 @@ export const fetchOneById = async (url) => {
 }
 
 /**
- *
- * @param url{string}
- * @returns {Promise<any>}
+* Sends a DELETE request to the specified URL and returns the response in JSON format.
+* @param {string} url - The URL to send the request to.
+* @return {Promise} - A promise that resolves to the JSON response or rejects with an error.
  */
 export const deleteById = async (url) => {
     const reqOptions = {
@@ -68,10 +68,10 @@ export const deleteById = async (url) => {
 }
 
 /**
- *
- * @param url{string}
- * @param reqData{object}
- * @returns {Promise<any>}
+ * Sends a POST request with the specified data to the specified URL.
+ * @param {string} url - The URL to send the request to.
+ * @param {Object} reqData - The data to send in the request body.
+ * @return {Promise<Object|Error>} A promise that resolves with the response data as a JSON object, or rejects with an error.
  */
 export const postNewOne = async (url,reqData) => {
     const reqOptions = {
