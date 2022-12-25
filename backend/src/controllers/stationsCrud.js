@@ -2,7 +2,16 @@ const stationsCrudService = require("../services/stationsCrud");
 const {isStringNumberFloat, isNumberFloat} = require("../utils/isFloat");
 
 
-//stations?pageSize=10&pageNumber=1
+/**
+ * Retrieves a page of rows from the stations table.
+ *
+ * @async
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {function} next - The next middleware function in the route.
+ * @return {Promise<void>} - A promise that resolves when the function has completed.
+ *                           The response object will be updated with the result of the query.
+ */
 getAllStations = async (req, res, next) => {
 
     const pageSize = req.query.pageSize || 10;
@@ -30,6 +39,16 @@ getAllStations = async (req, res, next) => {
     next();
 }
 
+/**
+ * Inserts a new row into the stations table with the data provided in the request body.
+ *
+ * @async
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {function} next - The next middleware function in the route.
+ * @return {Promise<void>} - A promise that resolves when the function has completed.
+ *                           The response object will be updated with the result of the query.
+*/
 postNewStation = async (req,res,next) =>{
     /**
      *
@@ -205,7 +224,18 @@ updateStation = async (req,res,next) =>{
 }
 
 
-
+/**
+ * Retrieves a row from the stations table by its ID.
+ *
+ * @async
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {function} next - The next middleware function in the route.
+ * @return {Promise<void>} - A promise that resolves when the function has completed.
+ *                           The response object will be updated with the result of the query.
+ *
+ * @param {string} req.params.id - The ID of the row to retrieve.
+ */
 getStationById = async (req, res, next) => {
 
     try{
@@ -233,6 +263,17 @@ getStationById = async (req, res, next) => {
     next();
 }
 
+/**
+ * Deletes a row from the stations table by its ID.
+ *
+ * @async
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {function} next - The next middleware function in the route.
+ * @return {Promise<void>} - A promise that resolves when the function has completed.
+ *                           The response object will be updated with the result of the query.
+ *
+ */
 deleteStationById = async (req, res, next) => {
     try{
         if(!isNaN(req.params.id)){

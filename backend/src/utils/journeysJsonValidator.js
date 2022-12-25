@@ -3,11 +3,9 @@ const mockJourneys = mockJourneysImport['getMockValue'];
 
 /**
  *
- * @param journeyJson{object[]}
- * @returns {object[]}
+ @param {Array} journeyJson - An array of objects that represents journey data
+ @returns {Array} - An array of objects with updated keys
  */
-
-
 exports.convert = (journeyJson) => {
     let result = [];
     let isPassed = true;

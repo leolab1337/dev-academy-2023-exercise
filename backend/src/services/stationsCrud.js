@@ -2,9 +2,15 @@ const db = require('./DB');
 
 
 
-
+/**
+ * Returns the number of rows in the stations table.
+ *
+ * @async
+ * @return {Promise<Object>} - A promise that resolves to an object with a 'count' property
+ *                             representing the number of rows in the table.
+ *                             If an error occurs, the promise will resolve to null.
+ */
 exports.getCountOfRows = async () => {
-
     try{
         let resp;
         const selectTokenQ = `SELECT COUNT(*) as count FROM stations`;
@@ -44,10 +50,14 @@ exports.getAllStations = async (pageSize = 10,pageNumber = 1) => {
         return null;
     }
 }
+
 /**
+ * Inserts a new row into the stations table with the provided data.
  *
- * @param jsonObject{object}
- * @returns {Promise<object|null>}
+ * @async
+ * @param {Object} jsonObject - An object containing the data to be inserted into the table.
+ * @return {Promise<Object>} - A promise that resolves to the result of the SQL query.
+ *                             If an error occurs, the promise will resolve to null.
  */
 exports.postNewStation = async (jsonObject) => {
 
@@ -108,9 +118,13 @@ exports.postNewStation = async (jsonObject) => {
 
 
 /**
+ * Retrieves a row from the stations table with the specified ID.
  *
- * @param id{number}
- * @returns {Promise<object|null>}
+ * @async
+ * @param {number} id - The ID of the row to retrieve.
+ * @return {Promise<Object[]>} - A promise that resolves to an array of objects representing the rows in the table.
+ *                               If no data is found, the promise will reject with an error.
+ *                               If an error occurs, the promise will resolve to null.
  */
 exports.getStationById = async (id) => {
     try{
@@ -132,9 +146,13 @@ exports.getStationById = async (id) => {
 }
 
 /**
+ * Deletes a row from the stations table with the specified ID.
  *
- * @param id{number}
- * @returns {Promise<object|null>}
+ * @async
+ * @param {number} id - The ID of the row to delete.
+ * @return {Promise<Object[]>} - A promise that resolves to an array of objects representing the rows that were deleted.
+ *                               If no data is deleted, the promise will reject with an error.
+ *                               If an error occurs, the promise will resolve to null.
  */
 exports.deleteStationById = async (id) => {
     try{
@@ -157,9 +175,13 @@ exports.deleteStationById = async (id) => {
 
 
 /**
+ * Deletes a row from the stations table with the specified FID.
  *
- * @param FID{number}
- * @returns {Promise<object|null>}
+ * @async
+ * @param {number} FID - The FID of the row to delete.
+ * @return {Promise<Object[]>} - A promise that resolves to an array of objects representing the rows that were deleted.
+ *                               If no data is deleted, the promise will reject with an error.
+ *                               If an error occurs, the promise will resolve to null.
  */
 exports.deleteStationByFid = async (FID) => {
     try{
@@ -182,9 +204,13 @@ exports.deleteStationByFid = async (FID) => {
 
 
 /**
+ * Retrieves a row from the stations table with the specified FID.
  *
- * @param FID{number}
- * @returns {Promise<object|null>}
+ * @async
+ * @param {number} FID - The FID of the row to retrieve.
+ * @return {Promise<Object[]>} - A promise that resolves to an array of objects representing the rows in the table.
+ *                               If no data is found, the promise will reject with an error.
+ *                               If an error occurs, the promise will resolve to null.
  */
 exports.getStationByFId = async (FID) => {
     try{
