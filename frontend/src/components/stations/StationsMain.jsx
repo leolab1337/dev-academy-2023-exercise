@@ -3,6 +3,7 @@ import {deleteById, fetchAllData, postNewOne} from "../../api/api";
 import StationList from "./StationList";
 import {Collapse} from "react-bootstrap";
 import AddNewStation from "./AddNewStation";
+import {OwnPagination} from "../UtilComponents/Pagination";
 
 
 /**
@@ -11,11 +12,21 @@ import AddNewStation from "./AddNewStation";
  * functions to delete and add stations, respectively. It also uses the `signal` state and the `sendSignal` function to
  * trigger a re-fetch of the list of stations from the server whenever a station is added or deleted.
  * @returns {JSX.Element} - A JSX component that displays a list of stations, a form for adding a new station, and buttons for deleting and adding stations.
+ *
+ * The component also includes pagination functionality, with the `pageSize` and `pageNumber` state variables controlling
+ * the number of items displayed per page and the current page, respectively. The `handlePageSizeChange`, `handlePrevPage`,
+ * and `handleNextPage` functions allow the user to change the page size and navigate between pages. The `totalPages`
+ * state variable stores the total number of pages for the list of stations.
  */
  const StationsMain =  () => {
 
     const [stations,setStations] = useState([]);
     const [stationsColumns,setStationsColumns] = useState();
+
+    const [pageSize, setPageSize] = useState(10);
+    const [pageNumber, setPageNumber] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+
     const [fetchError,setFetchError] = useState(null);
     const[signal,sendSignal] = useState(false);
 
@@ -61,25 +72,29 @@ import AddNewStation from "./AddNewStation";
         )
     }
 
+    /**Pagination logic*/
+    const handlePageSizeChange = ev => setPageSize(ev.target.value);
+    const handlePrevPage = _ => setPageNumber(pageNumber - 1);
+    const handleNextPage = _ => setPageNumber(pageNumber + 1);
 
 
     useEffect( ()=>{
-       fetchAllData(`${process.env.REACT_APP_SERVER_URL}/stations`).then(r=>{
+       fetchAllData(`${process.env.REACT_APP_SERVER_URL}/stations?pageSize=${pageSize}&pageNumber=${pageNumber}`).then(r=>{
            if( r !== null){
-               setStations(r.result)
+               setStations(r.result);
                setStationsColumns(Object.keys(r.result[0]));
+               setTotalPages(r.totalCount);
            }
        }).catch(e => setFetchError(e));
-    },[signal]);
+    },[signal,pageSize,pageNumber]);
 
 
+
+    // open/close checker is  a one is open an another should be closed
     const [openList, setOpenList] = useState(true);
     const [openPostNew, setOpenPostNew] = useState(false);
-
-    // open/close checker is an one is open another one is closed
     useEffect(()=>{openList && setOpenPostNew(false)},[openList]);
     useEffect(()=>{openPostNew && setOpenList(false)},[openPostNew]);
-
 
 
     return (
@@ -107,6 +122,16 @@ import AddNewStation from "./AddNewStation";
             <Collapse in={openList}>
                 <div>
                 <StationList stations={stations} stationsColumns={stationsColumns} deleteStationById={deleteStationById}/>
+                    <div className='mt-3'>
+                    <OwnPagination
+                        pageSize={pageSize}
+                        pageNumber={pageNumber}
+                        totalPages={totalPages}
+                        handlePrevPage={handlePrevPage}
+                        handleNextPage={handleNextPage}
+                        handlePageSizeChange={handlePageSizeChange}
+                    />
+                    </div>
                 </div>
             </Collapse>
 

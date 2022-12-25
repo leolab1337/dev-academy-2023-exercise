@@ -3,7 +3,6 @@ import styles from './Stations.module.css'
 import {useLocation, useNavigate} from "react-router";
 import {useEffect, useState} from "react";
 
-
 /**
  * StationList - a functional component that displays a list of stations with the ability to sort by column and delete a station.
  * @param {Array} stations - An array of objects that represents the stations to be displayed in the list.
@@ -50,12 +49,15 @@ const StationList = ({stations=[],stationsColumns,deleteStationById}) => {
         setStationsLocal(sortedStations);
     }
 
+
+
     useEffect(()=>{
         if(stationsLocal){
             doSort(currentTitle);
         }
         setStationsLocal(stations);
-    },[stations,stationsColumns])
+    },[stations,stationsColumns]);
+
 
 
     return (
