@@ -8,7 +8,8 @@ exports.handleGetResp = (req, res) => {
     if(res.statusCode === 400){
         res.json({
             isSuccess: false,
-            message: "Bad Request,try to put a Number Value as the index"
+            message: "Bad Request,try to put a Number Value as the index",
+            code: res.statusCode
         });
     }
 
@@ -24,6 +25,7 @@ exports.handleGetResp = (req, res) => {
         res.json({
             isSuccess: true,
             message: "Data has been found",
+            totalCount:res.totalCount,
             result: res.result,
             code: res.statusCode
         });

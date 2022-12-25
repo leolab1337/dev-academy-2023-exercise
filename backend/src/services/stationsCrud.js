@@ -1,15 +1,40 @@
 const db = require('./DB');
 
-/**
- *
- * @returns {Promise<object|null>}
- */
-exports.getAllStations = async () => {
+
+
+
+exports.getCountOfRows = async () => {
+
     try{
         let resp;
-        const selectTokenQ = `SELECT * FROM stations order by ID;`;
+        const selectTokenQ = `SELECT COUNT(*) as count FROM stations`;
         resp = await db.makeQuery(selectTokenQ);
+        if(resp){
+            return resp;
+        }
 
+    } catch (e){
+        console.log(e);
+        return null;
+    }
+}
+
+
+
+/**
+ * Retrieves a list of all stations from the database, paginated.
+ * @param {number} pageSize - The number of stations to return in each page. Default is 10.
+ * @param {number} pageNumber - The page number to retrieve. Default is 1.
+ * @returns {Promise<*|null>} An array promise of stations, or null if an error occurred.
+ */
+exports.getAllStations = async (pageSize = 10,pageNumber = 1) => {
+    // Calculate the offset based on the page size and number
+    const offset = (pageNumber - 1) * pageSize;
+    try{
+        let resp;
+        // Select all stations from the database, ordered by ID and limited by the page size and offset
+        const selectTokenQ = `SELECT * FROM stations ORDER BY ID ASC LIMIT ? OFFSET ? ;`;
+        resp = await db.makeQuery(selectTokenQ, [pageSize, offset]);
         if(resp){
             return resp;
         }

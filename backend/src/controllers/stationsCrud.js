@@ -1,12 +1,23 @@
 const stationsCrudService = require("../services/stationsCrud");
 const {isStringNumberFloat, isNumberFloat} = require("../utils/isFloat");
 
+
+//stations?pageSize=10&pageNumber=1
 getAllStations = async (req, res, next) => {
+
+    const pageSize = req.query.pageSize || 10;
+    const pageNumber = req.query.pageNumber || 1;
+
     try{
-        const resp = await stationsCrudService.getAllStations()
-        if(resp){
+
+        const rowsCount = await stationsCrudService.getCountOfRows();
+
+        const resp = await stationsCrudService.getAllStations(Number(pageSize),Number(pageNumber));
+        if(resp && rowsCount){
             res.statusCode = 200;
             res.result = resp;
+            res.totalCount = rowsCount[0]['count'];
+            console.log(res.result);
         }
         else{
             res.statusCode = 404;
