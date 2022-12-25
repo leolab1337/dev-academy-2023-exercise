@@ -20,7 +20,7 @@ import {OwnPagination} from "../UtilComponents/Pagination";
  */
  const StationsMain =  () => {
 
-    const [stations,setStations] = useState([]);
+    const [stations,setStations] = useState(null);
     const [stationsColumns,setStationsColumns] = useState();
 
     const [pageSize, setPageSize] = useState(10);
@@ -143,7 +143,8 @@ import {OwnPagination} from "../UtilComponents/Pagination";
                         />
                     </div>
 
-                    <StationList stations={stations} stationsColumns={stationsColumns} deleteStationById={deleteStationById}/>
+                    {
+                        stations && <StationList stations={stations} stationsColumns={stationsColumns} deleteStationById={deleteStationById}/>}
                 </div>
             </Collapse>
 

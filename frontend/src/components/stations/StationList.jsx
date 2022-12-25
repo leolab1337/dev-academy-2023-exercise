@@ -50,11 +50,12 @@ const StationList = ({stations=[],stationsColumns,deleteStationById}) => {
     }, [currentTitle, isMinToMax, stationsLocal]);
 
 
+
+
     useEffect(()=>{
         if(stationsLocal){
             doSort(currentTitle);
         }
-        setStationsLocal(stations);
     },[stations,stationsColumns]);
 
 
