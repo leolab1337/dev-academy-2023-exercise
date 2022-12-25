@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 import {Button, Form} from "react-bootstrap";
 
+/**
+ * A component that displays a form for adding a new station, and handles the submission of the form.
+ * @param {Function} postNewStation - A function that sends a request to add a new station with the data from the form.
+ * @return {JSX.Element} The `Form` element with the form fields and submit button.
+ */
 const AddNewStation = ({postNewStation}) => {
 
     const defaultObject = {
@@ -44,26 +49,6 @@ const AddNewStation = ({postNewStation}) => {
                     ID is required,  please put it in an integer format
                 </Form.Text>
             </Form.Group>
-
-            {/*todo think how to implement*/}
-            {/*{*/}
-            {/*    ['Nimi','Namn','Name'].map(N=>(*/}
-            {/*        <Form.Group className="mb-3" controlId="formBasicNimi">*/}
-            {/*            <Form.Label>{N}</Form.Label>*/}
-            {/*            <Form.Control type="text" placeholder="Enter Nimi"*/}
-            {/*                          value={objectToPost[N]}*/}
-            {/*                          onChange={(e)=> setObjectToPost((prevState, => ({*/}
-            {/*                                  ...prevState,*/}
-            {/*                                  N[]: e.target.value*/}
-            {/*                              })*/}
-            {/*                          ))}*/}
-            {/*            />*/}
-            {/*            <Form.Text className="text-muted">*/}
-            {/*                Nimi,Namn,Name : at least one of them is required*/}
-            {/*            </Form.Text>*/}
-            {/*        </Form.Group>*/}
-            {/*    ))*/}
-            {/*}*/}
 
             <Form.Group className="mb-3" controlId="formBasicNimi">
                 <Form.Label>Nimi</Form.Label>

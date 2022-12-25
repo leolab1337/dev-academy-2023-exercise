@@ -5,7 +5,10 @@ import { ReactComponent as Logo } from '../img/logo1.svg';
 
 
 
-
+/**
+ * A component that displays a responsive navbar with links to the stations and journeys pages.
+ * @return {JSX.Element} The `Navbar` element.
+ */
 const Navbar2 = () => {
 
     const navigate = useNavigate();
@@ -15,9 +18,9 @@ const Navbar2 = () => {
             <Container>
                 <Navbar.Brand className='d-flex justify-content gap-2' onClick={()=>navigate('/')} style={{cursor : 'pointer'}}>
                     <Logo
-                            style={{marginTop : '1.5px'}}
-                            width="25"
-                            height="25"
+                        style={{marginTop : '1.5px'}}
+                        width="25"
+                        height="25"
                     />    Helsinki City Bike App
                     {' '}
                 </Navbar.Brand>

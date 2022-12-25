@@ -12,7 +12,12 @@ const svgMarker = {
     scale: 2
 };
 
-
+/**
+ * A component that displays a map centered at the specified coordinates, with a marker at the same position.
+ * @param {number} x - The longitude of the center of the map and marker.
+ * @param {number} y - The latitude of the center of the map and marker.
+ * @return {JSX.Element} The `MapContainer` element with the map and marker.
+ */
 const Map = ({x= 24.9442,y= 60.166}) => {
 
     const position = [y, x];

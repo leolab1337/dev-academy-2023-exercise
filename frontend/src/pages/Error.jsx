@@ -2,9 +2,8 @@ import {useNavigate} from "react-router";
 import {Container} from "react-bootstrap";
 
 /**
- * Error page
- * @returns {JSX.Element}
- * @constructor
+ * A component that displays an error message and a button to navigate to the main page.
+ * @return {JSX.Element} The `Container` element with the error message and button.
  */
 function Error() {
 

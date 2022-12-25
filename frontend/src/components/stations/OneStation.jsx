@@ -4,7 +4,11 @@ import {useNavigate, useParams} from "react-router";
 import {fetchOneById} from "../../api/api";
 import Map from "../map/Map";
 
-
+/**
+ * A component that displays the details of a single station, including its location on a map.
+ * The component fetches the station data from the server using the station's ID, which is passed as a route parameter.
+ * @return {JSX.Element} The `div` element with the station data and map.
+ */
 const OneStation = () => {
 
     const navigate = useNavigate();

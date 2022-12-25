@@ -3,10 +3,16 @@ import {deleteById, fetchAllData, postNewOne} from "../../api/api";
 import StationList from "./StationList";
 import {Collapse} from "react-bootstrap";
 import AddNewStation from "./AddNewStation";
-import {SortByTitle} from "../../utils/SortByTitle";
 
 
-const StationsMain =  () => {
+/**
+ * StationsMain - a functional component that displays a list of stations, allows the user to add a new station, and
+ * allows the user to delete a station from the list. The component uses the `deleteStationById` and `postNewStation`
+ * functions to delete and add stations, respectively. It also uses the `signal` state and the `sendSignal` function to
+ * trigger a re-fetch of the list of stations from the server whenever a station is added or deleted.
+ * @returns {JSX.Element} - A JSX component that displays a list of stations, a form for adding a new station, and buttons for deleting and adding stations.
+ */
+ const StationsMain =  () => {
 
     const [stations,setStations] = useState([]);
     const [stationsColumns,setStationsColumns] = useState();
@@ -15,8 +21,11 @@ const StationsMain =  () => {
 
 
     /**
+     * deleteStationById - a function that deletes a station from the server by its ID.
      *
-     * @param id
+     * @param {string} id - The ID of the station to be deleted.
+     *
+     * @returns {void} - This function does not return a value.
      */
     const deleteStationById = (id) => {
         deleteById(`${process.env.REACT_APP_SERVER_URL}/stations/${id}`).then(r=>{
@@ -32,8 +41,9 @@ const StationsMain =  () => {
     }
 
     /**
-     *
-     * @param reqObject{object}
+     * postNewStation - a function that posts a new station to the server.
+     * @param {Object} reqObject - An object that contains the new station data to be posted to the server.
+     * @returns {void} - This function does not return a value.
      */
     const postNewStation = (reqObject) => {
         postNewOne(`${process.env.REACT_APP_SERVER_URL}/stations`,reqObject).then(r=>{
@@ -53,8 +63,6 @@ const StationsMain =  () => {
 
 
 
-
-
     useEffect( ()=>{
        fetchAllData(`${process.env.REACT_APP_SERVER_URL}/stations`).then(r=>{
            if( r !== null){
@@ -69,7 +77,6 @@ const StationsMain =  () => {
     const [openPostNew, setOpenPostNew] = useState(false);
 
     // open/close checker is an one is open another one is closed
-
     useEffect(()=>{openList && setOpenPostNew(false)},[openList]);
     useEffect(()=>{openPostNew && setOpenList(false)},[openPostNew]);
 

@@ -6,6 +6,10 @@ import JourneysPage from "../pages/JourneysPage";
 import StationsPage from "../pages/StationsPage";
 import OneStationPage from "../pages/OneStationPage";
 
+/**
+ * A component that displays a routing setup for the app, including the `Navbar` component and various route components.
+ * @return {JSX.Element} The `BrowserRouter` element with the routing configuration.
+ */
 const RouterComponent = () => {
     return (
         <BrowserRouter>

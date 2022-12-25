@@ -1,17 +1,15 @@
 import { v4 as uuid } from 'uuid';
 import styles from './Stations.module.css'
 import {useLocation, useNavigate} from "react-router";
-import {SortByTitle} from "../../utils/SortByTitle";
-import {useCallback, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 
 
 /**
- *
- * @param stations
- * @param stationsColumns
- * @param deleteStationById{Function}
- * @returns {JSX.Element}
- * @constructor
+ * StationList - a functional component that displays a list of stations with the ability to sort by column and delete a station.
+ * @param {Array} stations - An array of objects that represents the stations to be displayed in the list.
+ * @param {Array} stationsColumns - An array of strings that represent the column titles for the stations list.
+ * @param {function} deleteStationById - A function that takes in an ID and deletes a station from the list by that ID.
+ * @returns {JSX.Element} - A JSX element that represents the rendered station list.
  */
 const StationList = ({stations=[],stationsColumns,deleteStationById}) => {
 
@@ -98,6 +96,15 @@ const StationList = ({stations=[],stationsColumns,deleteStationById}) => {
 
 export default StationList;
 
+
+/**
+ *
+ * @param stations
+ * @param stationsColumns
+ * @param deleteStationById{Function}
+ * @returns {JSX.Element}
+ * @constructor
+ */
 
 
 
