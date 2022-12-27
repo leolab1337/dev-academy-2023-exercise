@@ -16,8 +16,7 @@ const OneStation = () => {
     const stationID = params.id;
 
     const [fetchError,setFetchError] = useState(null);
-    let [stationObject,setStationObject] = useState({});
-
+    const [stationObject,setStationObject] = useState({});
 
     useEffect( ()=>{
         fetchOneById(`${process.env.REACT_APP_SERVER_URL}/stations/${stationID}`).then(r=>{
@@ -29,12 +28,6 @@ const OneStation = () => {
             }
         }).catch(e => setFetchError(e))
     },[navigate,stationID]);
-
-    useEffect( ()=>{
-        console.log(stationObject.x)
-        console.log(stationObject.y)
-    },[stationObject]);
-
     return (
         <>
             <div className='d-flex justify-content-start gap-3'>
