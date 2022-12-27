@@ -5,6 +5,7 @@ import Error from "../pages/Error";
 import JourneysPage from "../pages/JourneysPage";
 import StationsPage from "../pages/StationsPage";
 import OneStationPage from "../pages/OneStationPage";
+import OneJourneyPage from "../pages/OneJourneyPage";
 
 /**
  * A component that displays a routing setup for the app, including the `Navbar` component and various route components.
@@ -20,9 +21,11 @@ const RouterComponent = () => {
                     element={<Navigate to="stations" replace />}
                 />
                 <Route path="/journeys"  element={<JourneysPage/>}/>
-                <Route path="stations"  element={<StationsPage/>}/>
+                <Route path="/journeys/:id"  element={<OneJourneyPage/>}/>
 
+                <Route path="stations"  element={<StationsPage/>}/>
                 <Route path="stations/:id"  element={<OneStationPage/>}/>
+
                 <Route path="404"  element={<Error/>}/>
                 <Route
                     path="*"
