@@ -25,7 +25,9 @@ export const OwnPagination = ({pageSize,pageNumber,totalPages,handlePrevPage,han
             </div>
             <div>
                 Results per page:{' '}
-                <input type="number" value={pageSize} onChange={handlePageSizeChange}  min="1" max="100"/>
+
+                <input id='numberInput' type="number" value={pageSize} onChange={handlePageSizeChange}  min="1" max="100"/>
+                <label style={{fontSize: '0.8rem', marginLeft: '0.4rem', color: '#bd111f'}} htmlFor="numberInput">Values between(1-100)</label>
             </div>
             <span style={{color: 'red'}}>{error && error}</span>
         </div>
