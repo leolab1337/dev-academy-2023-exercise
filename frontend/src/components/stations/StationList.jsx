@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid';
 import styles from './Stations.module.css'
 import {useLocation, useNavigate} from "react-router";
-import {useCallback, useEffect, useState} from "react";
+import useObjectArraySort from "../../hooks/useObjectArraySort";
 
 /**
  * StationList - a functional component that displays a list of stations with the ability to sort by column and delete a station.
@@ -16,49 +16,7 @@ const StationList = ({stations=[],stationsColumns,deleteStationById}) => {
     const navigate = useNavigate();
     const { pathname } = useLocation();
     const onClick = id => navigate(`${pathname}/${id}`);
-
-    const [stationsLocal, setStationsLocal] = useState(stations);
-    const [currentTitle,setCurrentTitle] = useState('FID');
-    const [isMinToMax,setIsMinToMax] = useState(true);
-
-    const doSort = useCallback((newTitle) => {
-
-        let sortedStations = [];
-
-        if(newTitle === currentTitle) {
-            setIsMinToMax(prevState => !prevState);
-        }
-        else{
-            setIsMinToMax(true);
-        }
-
-        if(isMinToMax){
-            sortedStations = [...stationsLocal].sort( (a,b)=>typeof(a[newTitle]) === "string" ?
-                a[newTitle].localeCompare(b[newTitle])
-                : a[newTitle] - b[newTitle]
-            );
-        }
-
-        if(!isMinToMax){
-            sortedStations = [...stationsLocal].sort( (a,b)=>typeof(b[newTitle]) === "string" ?
-                b[newTitle].localeCompare(a[newTitle])
-                : b[newTitle] - a[newTitle]
-            );
-        }
-        setCurrentTitle(newTitle);
-        setStationsLocal(sortedStations);
-    }, [currentTitle, isMinToMax, stationsLocal]);
-
-
-
-
-    useEffect(()=>{
-        if(stationsLocal){
-            doSort(currentTitle);
-        }
-    },[stations,stationsColumns]);
-
-
+    const [stationsLocal, handleObjectArraySort] = useObjectArraySort(stations, stationsColumns[0]);
 
     return (
         <>
@@ -66,7 +24,7 @@ const StationList = ({stations=[],stationsColumns,deleteStationById}) => {
         <div>
             <div className='d-flex justify-content-between'>
             {stationsColumns?.map( (sc)=>(
-                <span  style={{cursor: 'pointer'}} onClick={()=>doSort(sc)} key={uuid()}>{sc}</span>
+                <span  style={{cursor: 'pointer'}} onClick={()=>handleObjectArraySort(sc)} key={uuid()}>{sc}</span>
                 )
             )}
             </div>
@@ -97,16 +55,6 @@ const StationList = ({stations=[],stationsColumns,deleteStationById}) => {
 };
 
 export default StationList;
-
-
-/**
- *
- * @param stations
- * @param stationsColumns
- * @param deleteStationById{Function}
- * @returns {JSX.Element}
- * @constructor
- */
 
 
 
