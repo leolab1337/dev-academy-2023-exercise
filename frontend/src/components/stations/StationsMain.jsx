@@ -93,7 +93,7 @@ import {OwnPagination} from "../UtilComponents/Pagination";
            if( r !== null){
                setStations(r.result);
                setStationsColumns(Object.keys(r.result[0]));
-               setTotalPages(r.totalCount);
+               setTotalPages(Math.ceil(r.totalCount/pageSize));
            }
        }).catch(e => setFetchError(e));
     },[signal,pageSize,pageNumber]);
@@ -132,15 +132,18 @@ import {OwnPagination} from "../UtilComponents/Pagination";
             <Collapse in={openList}>
                 <div>
                     <div className='mt-3'>
-                        <OwnPagination
-                            pageSize={pageSize}
-                            pageNumber={pageNumber}
-                            totalPages={totalPages}
-                            handlePrevPage={handlePrevPage}
-                            handleNextPage={handleNextPage}
-                            handlePageSizeChange={handlePageSizeChange}
-                            error={validationError}
-                        />
+                        {
+
+                            <OwnPagination
+                                pageSize={pageSize}
+                                pageNumber={pageNumber}
+                                totalPages={totalPages}
+                                handlePrevPage={handlePrevPage}
+                                handleNextPage={handleNextPage}
+                                handlePageSizeChange={handlePageSizeChange}
+                                error={validationError}
+                            />
+                        }
                     </div>
 
                     {
