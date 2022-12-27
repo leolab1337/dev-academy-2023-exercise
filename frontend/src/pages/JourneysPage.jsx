@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container} from "react-bootstrap";
+import JourneysMain from "../components/journeys/JourneysMain";
 
 
 /**
@@ -9,7 +10,9 @@ import {Container} from "react-bootstrap";
 const JourneysPage = () => {
     return (
         <Container>
-            it is journeys page
+            it is journeys page,
+            <JourneysMain/>
+
         </Container>
     );
 };
