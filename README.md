@@ -61,7 +61,7 @@ Go into the frontend and backend folders one by one and write the following comm
   
   <ul>
    <li>Go to -> backend/server.js file and uncomment the 32nd row </li>
-   <li>Write the following command in the console:<code> npm run start</code></li>  //todo make another separeted logic for converter
+   <li>Write the following command in the console:<code> npm run start</code></li>  //todo make another separeted logic for the converter
    <li>Wait about 3 hours for the results to be converted. On success, comment back the 32nd line and reload the application.</li>
   </ul>
   
