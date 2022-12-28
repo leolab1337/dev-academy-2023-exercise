@@ -26,12 +26,6 @@ app.use("/journeys", require("./src/routes/journeysRoutes"));
 app.use("/hello", require("./src/routes/greetingRoute"));
 
 
-
-// app.get('/hello', (req, res) => {
-//     res.send('Hello World!')
-// });
-
-
 app.listen(process.env.SERVER_PORT, () => {
     displayLinks();
     // activate it when u need convert csv data to database;
