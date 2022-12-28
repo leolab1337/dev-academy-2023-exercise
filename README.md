@@ -72,6 +72,15 @@ By default it will be ran on the http://localhost:8080/
 Then , in your usage will be different paths, that are described in the swagger http://localhost:8080/api-docs/
 
 <img src="./imgs/paths.PNG"  title="paths">
-  
 
+And here are er diagrams , for better understanding with which format the api works 
+
+<img src="./imgs/erd.PNG"  title="paths">
+  
+<h3>6. Frontend usage</h3>
+<b>To run it</b> go the frontend folder in another terminal and write command: <code> npm run start</code>
+
+By default it will be ran on the http://localhost:3000/
+
+<img src="./imgs/erd.PNG"  title="paths">
   
