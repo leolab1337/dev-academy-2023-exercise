@@ -65,12 +65,13 @@ Go into the frontend & backend folders one by one and write to the console:
  
   
 <h3>5. Backend usage</h3> 
-<b>To run backend</b> go the backend folder and write command <code> npm run start</code>
+<b>To run backend</b> go the backend folder and write command: <code> npm run start</code>
 
 By default it will be ran on the http://localhost:8080/
 
-Then , in your usage will be different paths, that are described in swagger http://localhost:8080/api-docs/
+Then , in your usage will be different paths, that are described in the swagger http://localhost:8080/api-docs/
 
+<img src="./imgs/paths.PNG"  title="paths">
   
 
   
