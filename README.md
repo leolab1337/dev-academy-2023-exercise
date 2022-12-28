@@ -1,19 +1,23 @@
 # Helsinki city bike app (Dev Academy pre-assignment)
 
-This is the pre-assignment for Solita Dev Academy Finland 2023.
+This is the pre-assignment for the Solita Dev Academy Finland 2023.
 
 ## Getting started
 
 <h3>1. Create a database</h3>
 
-In the backend folder you find DBScript.sql file open it and copy all of the content.
-Open your SQL database in the terminal and paste the content of the file.
-When it is done you have a database.
+In the backend folder, you will find the DBScript.sql file.   
+
+Open it and copy all of its content. 
+
+Open your SQL database in the terminal and paste the content of the file. 
+
+When it is done, you will have a database.
 
 <h3>2. Configure .env file</h3>
 
-In the root of frontend and backend folders you find .env files
-Open the, and change values if needed:
+In the root of the frontend and backend folders, you will find .env files
+Open them and change the values if needed:
 
 | Field name            | Description                                                                                                             |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -30,7 +34,7 @@ Open the, and change values if needed:
 
 <h3>3. Install npm packages</h3>
 
-Go into the frontend & backend folders one by one and write to the console:
+Go into the frontend and backend folders one by one and write the following command in the console:
 
 <code>npm i</code>
 
@@ -38,27 +42,27 @@ Go into the frontend & backend folders one by one and write to the console:
    <h4>There are two variants(4.1 or 4.2):</h4>
    <h4>4.1.1 Add data to the data folders:</h4> 
 
-  Download files:
+ Download the following files:
   
   https://dev.hsl.fi/citybikes/od-trips-2021/2021-05.csv <br/>
   https://dev.hsl.fi/citybikes/od-trips-2021/2021-06.csv <br/>
   https://dev.hsl.fi/citybikes/od-trips-2021/2021-07.csv <br/>
   
-  Put them to: 
+  Put them in the following location:
   
   backend/data/csv/journeys
   
-  **Important!** Delete addDatahere file
+  **Important!** Delete addDatahere file.
   
   **Note:** backend/data/csv/bicycle-stations-dataset has already file inside, and it accepts another files with same format if it is desired 
   (source: https://opendata.arcgis.com/datasets/726277c507ef4914b0aec3cbcfcbfafc_0.csv)
   
-  <h4>4.1.2 Activate converter:</h4> 
+  <h4>4.1.2 Activate the converter:</h4> 
   
   <ul>
-   <li>Go to -> backend/server.js file and uncomment the 32 row </li>
-   <li>Write to console  command:<code> npm run start</code></li>  //todo make another separeted logic for converter
-   <li>Wait about 3 hours for converting results and on success message comment back the 32 row and reload app</li>
+   <li>Go to -> backend/server.js file and uncomment the 32nd row </li>
+   <li>Write the following command in the console:<code> npm run start</code></li>  //todo make another separeted logic for the converter
+   <li>Wait about 3 hours for the results to be converted. On success, comment back the 32nd line and reload the application.</li>
   </ul>
   
   <h4>4.2 Import dumped database from the resource : https://drive.google.com/file/d/1-1cURsNInHa1pqPPQryHpmYQvUVE6Iy7/view?usp=share_link</h4> 
@@ -67,7 +71,7 @@ Go into the frontend & backend folders one by one and write to the console:
 <h3>5. Backend usage</h3> 
 <b>To run backend</b> go the backend folder and write command: <code> npm run start</code>
 
-By default it will be ran on the http://localhost:8080/
+By default it will be run  on the http://localhost:8080/
 
 Then , in your usage will be different paths, that are described in the swagger http://localhost:8080/api-docs/
 
@@ -78,9 +82,9 @@ And here are er diagrams , for better understanding with which format the api wo
 <img src="./imgs/erd.PNG"  title="paths">
   
 <h3>6. Frontend usage</h3>
-<b>To run it</b> go the frontend folder in another terminal and write command: <code> npm run start</code>
+<b>To run the frontendt</b>, go to the frontend folder and write the following command in the console: <code> npm run start</code>
 
-By default it will be ran on the http://localhost:3000/
+By default it will be run  on the http://localhost:3000/ port
 
-<img src="./imgs/erd.PNG"  title="paths">
+<img src="./imgs/frontend.PNG"  title="paths">
   
