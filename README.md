@@ -4,13 +4,13 @@ This is the pre-assignment for Solita Dev Academy Finland 2023.
 
 ## Getting started
 
-1. Create a database
+<h3>1. Create a database</h3>
 
 In the backend folder you find DBScript.sql file open it and copy all of the content.
 Open your SQL database in the terminal and paste the content of the file.
 When it is done you have a database.
 
-2. Configure .env file
+<h3>2. Configure .env file</h3>
 
 In the root of frontend and backend folders you find .env files
 Open the, and change values if needed:
@@ -28,13 +28,15 @@ Open the, and change values if needed:
 | REACT_APP_SERVER_PORT | port number should be the same as SERVER_PORT                                                                           |
 | REACT_APP_SERVER_PORT | http://localhost:8080   isdefault                                                                                       |
 
-3. Install npm packages
+<h3>3. Install npm packages</h3>
 
 Go into the frontend & backend folders one by one and write to the console:
 
 <code>npm i</code>
 
-4. Add data to the data folders
+<h3>4.  Data</h3> 
+   <h4>There are two variants(4.1 or 4.2):</h4>
+   <h4>4.1.1 Add data to the data folders:</h4> 
 
   Download files:
   
@@ -51,7 +53,24 @@ Go into the frontend & backend folders one by one and write to the console:
   **Note:** backend/data/csv/bicycle-stations-dataset has already file inside, and it accepts another files with same format if it is desired 
   (source: https://opendata.arcgis.com/datasets/726277c507ef4914b0aec3cbcfcbfafc_0.csv)
   
-  5. 
+  <h4>4.1.2 Activate converter:</h4> 
+  
+  <ul>
+   <li>Go to -> backend/server.js file and uncomment the 32 row </li>
+   <li>Write to console  command:<code> npm run start</code></li>  //todo make another separeted logic for converter
+   <li>Wait about 3 hours for converting results and on success message comment back the 32 row and reload app</li>
+  </ul>
+  
+  <h4>4.2 Import dumped database from the resource : https://drive.google.com/file/d/1-1cURsNInHa1pqPPQryHpmYQvUVE6Iy7/view?usp=share_link</h4> 
+ 
+  
+<h3>5. Backend usage</h3> 
+<b>To run backend</b> go the backend folder and write command <code> npm run start</code>
+
+By default it will be ran on the http://localhost:8080/
+
+Then , in your usage will be different paths, that are described in swagger http://localhost:8080/api-docs/
+
   
 
   
