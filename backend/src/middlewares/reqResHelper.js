@@ -33,7 +33,7 @@ exports.handleGetResp = (req, res) => {
 
     if(res.statusCode === 500){
         res.json({
-            isSuccess: true,
+            isSuccess: false,
             message: "Internal server error",
             code: res.statusCode
         });
@@ -76,7 +76,7 @@ exports.handlePostResp = (req, res) => {
 
     else if(res.statusCode === 500){
         res.json({
-            isSuccess: true,
+            isSuccess: false,
             message: "Internal server error",
             code: res.statusCode
         });
@@ -128,7 +128,7 @@ exports.handlePutResp = (req, res) => {
 
     if(res.statusCode === 500){
         res.json({
-            isSuccess: true,
+            isSuccess: false,
             message: "Internal server error",
             code: res.statusCode
         });
@@ -177,7 +177,7 @@ exports.handleDeleteResp = (req, res) => {
 
     if(res.statusCode === 500){
         res.json({
-            isSuccess: true,
+            isSuccess: false,
             message: "Internal server error",
             code: res.statusCode
         });
