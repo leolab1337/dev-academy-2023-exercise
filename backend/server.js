@@ -4,8 +4,8 @@ const cors = require('cors');
 const path = require("path");
 const CSVHandler = require('./src/services/CsvHandler');
 const csvHandler = new CSVHandler();
-
-const app = express();
+const app = require('./swagger');
+// const app = express();
 
 
 app.use(express.json());
@@ -23,11 +23,13 @@ app.use("/stations", require("./src/routes/stationsRoutes"));
 
 app.use("/journeys", require("./src/routes/journeysRoutes"));
 
+app.use("/hello", require("./src/routes/greetingRoute"));
 
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-});
+
+// app.get('/hello', (req, res) => {
+//     res.send('Hello World!')
+// });
 
 
 app.listen(process.env.SERVER_PORT, () => {
