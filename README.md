@@ -81,10 +81,17 @@ And here are er diagrams , for better understanding with which format the api wo
 
 <img src="./imgs/erd.PNG"  title="paths">
   
-<h3>6. Frontend usage</h3>
+<h3>6. Frontend</h3>
 <b>To run the frontendt</b>, go to the frontend folder and write the following command in the console: <code> npm run start</code>
 
 By default it will be run  on the http://localhost:3000/ port
 
+<h4>How frontend looks at the moment:</h4> 
+
 <img src="./imgs/frontend.PNG"  title="paths">
   
+<img src="./imgs/oneStation.PNG"  title="one station">  
+
+<img src="./imgs/postStation.PNG"  title="post station">  
+
+<img src="./imgs/journeys.PNG"  title="journeys">  
