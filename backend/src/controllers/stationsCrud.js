@@ -26,7 +26,6 @@ getAllStations = async (req, res, next) => {
             res.statusCode = 200;
             res.result = resp;
             res.totalCount = rowsCount[0]['count'];
-            console.log(res.result);
         }
         else{
             res.statusCode = 404;
