@@ -3,7 +3,7 @@ import {deleteById, fetchAllData, postNewOne} from "../../api/api";
 import StationList from "./StationList";
 import {Collapse} from "react-bootstrap";
 import AddNewStation from "./AddNewStation";
-import {OwnPagination} from "../utilComponents/Pagination";
+import {OwnPagination} from "../utilComponents/OwnPagination";
 
 
 /**
