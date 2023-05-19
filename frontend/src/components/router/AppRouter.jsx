@@ -3,8 +3,6 @@ import { Suspense } from "react";
 import {routeConfig} from "./routeConfig";
 import {PageLoader} from "../utilComponents/PageLoader";
 
-console.log(routeConfig);
-
 export const AppRouter = () => (
     <Routes>
         {Object.values(routeConfig).map(({ element, path }) => (
