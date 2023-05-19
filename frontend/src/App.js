@@ -1,13 +1,15 @@
 import "leaflet/dist/leaflet.css";
 import './App.css'
-import RouterComponent from "./components/RouterComponent";
-
+import {AppRouter} from "./components/router/AppRouter";
+import Navbar from "./components/Navbar";
+import React from "react";
 
 function App() {
 
   return (
       <div className="App" id="container">
-        <RouterComponent/>
+          <Navbar/>
+          <AppRouter />
       </div>
   );
 }
