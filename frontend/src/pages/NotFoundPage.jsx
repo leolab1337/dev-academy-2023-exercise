@@ -5,7 +5,7 @@ import {Container} from "react-bootstrap";
  * A component that displays an error message and a button to navigate to the main page.
  * @return {JSX.Element} The `Container` element with the error message and button.
  */
-function Error() {
+function NotFoundPage() {
 
     const navigate = useNavigate();
     return (
@@ -16,4 +16,4 @@ function Error() {
     );
 }
 
-export default Error;
+export default NotFoundPage;
