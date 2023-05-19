@@ -26,10 +26,9 @@ import {OwnPagination} from "../utilComponents/OwnPagination";
     const [pageSize, setPageSize] = useState(10);
     const [pageNumber, setPageNumber] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const [validationError,setValidationError] = useState(null);
 
     const [fetchError,setFetchError] = useState(null);
-    const[signal,sendSignal] = useState(false);
+    const [signal,sendSignal] = useState(false);
 
 
     /**
@@ -70,23 +69,6 @@ import {OwnPagination} from "../utilComponents/OwnPagination";
             }
         )
     }
-
-    /**Pagination logic*/
-    const handlePageSizeChange = ev => {
-        if(ev.target.value < 1){
-            setValidationError('Value cannot be less than 1');
-        }
-        else if(ev.target.value >100){
-            setValidationError('Value cannot be greater than 100');
-        }
-        else{
-            setValidationError(null);
-            setPageSize(ev.target.value);
-        }
-    };
-    const handlePrevPage = _ => setPageNumber(pageNumber - 1);
-    const handleNextPage = _ => setPageNumber(pageNumber + 1);
-
 
     useEffect( ()=>{
        fetchAllData(`${process.env.REACT_APP_SERVER_URL}/stations?pageSize=${pageSize}&pageNumber=${pageNumber}`).then(r=>{
@@ -138,10 +120,8 @@ import {OwnPagination} from "../utilComponents/OwnPagination";
                                 pageSize={pageSize}
                                 pageNumber={pageNumber}
                                 totalPages={totalPages}
-                                handlePrevPage={handlePrevPage}
-                                handleNextPage={handleNextPage}
-                                handlePageSizeChange={handlePageSizeChange}
-                                error={validationError}
+                                setPageNumber={setPageNumber}
+                                setPageSize={setPageSize}
                             />
                         }
                     </div>
