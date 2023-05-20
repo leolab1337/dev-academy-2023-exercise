@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {Container, Nav, Navbar,Offcanvas} from "react-bootstrap";
 import {useNavigate} from "react-router";
-import { ReactComponent as Logo } from '../../../img/logo1.svg';
+import { ReactComponent as Logo } from '../../../../img/logo1.svg';
 
 import styles from './Navbar.module.css'
 
@@ -9,7 +9,7 @@ import styles from './Navbar.module.css'
  * A component that displays a responsive navbar with links to the stations and journeys pages.
  * @return {JSX.Element} The `Navbar` element.
  */
-const Navbar2 = () => {
+export const Navbar2 = memo(() => {
 
     const navigate = useNavigate();
 
@@ -46,6 +46,5 @@ const Navbar2 = () => {
             </Container>
         </Navbar>
     );
-};
+});
 
-export default Navbar2;
