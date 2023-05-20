@@ -1,6 +1,6 @@
 import React from 'react';
 import {Container} from "react-bootstrap";
-import StationsMain from "../components/stations/StationsMain";
+import StationsMain from "../../../components/stations/StationsMain";
 
 /**
  * A component that displays a page with a list of stations.

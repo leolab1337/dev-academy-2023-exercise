@@ -1,6 +1,6 @@
 import {Container} from "react-bootstrap";
-import GoBackButton from "../components/GoBackButton";
-import OneJourney from "../components/journeys/OneJourney";
+import GoBackButton from "../../../components/GoBackButton";
+import OneJourney from "../../../components/journeys/OneJourney";
 
 /**
  * A component that displays a page with information about a single journey.

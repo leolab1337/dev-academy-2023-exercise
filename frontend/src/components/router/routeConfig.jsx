@@ -1,10 +1,9 @@
 import { Navigate } from "react-router-dom";
-import JourneysPage from "../../pages/JourneysPage";
-import OneJourneyPage from "../../pages/OneJourneyPage";
-import StationsPage from "../../pages/StationsPage";
-import OneStationPage from "../../pages/OneStationPage";
-import NotFoundPage from "../../pages/NotFoundPage";
-import React from "react";
+import {JourneysPage} from "../../pages/JourneysPage";
+import {OneJourneyPage} from "../../pages/OneJourneyPage";
+import {OneStationPage} from "../../pages/OneStationPage";
+import {NotFoundPage} from "../../pages/NotFoundPage";
+import {StationsPage} from "../../pages/StationsPage";
 
 export const RoutePaths = {
     MAIN: "/",
