@@ -1,9 +1,9 @@
 import React from 'react';
 import {Container, Nav, Navbar,Offcanvas} from "react-bootstrap";
 import {useNavigate} from "react-router";
-import { ReactComponent as Logo } from '../img/logo1.svg';
+import { ReactComponent as Logo } from '../../../img/logo1.svg';
 
-
+import styles from './Navbar.module.css'
 
 /**
  * A component that displays a responsive navbar with links to the stations and journeys pages.
@@ -14,7 +14,7 @@ const Navbar2 = () => {
     const navigate = useNavigate();
 
     return (
-        <Navbar key={'lg'} bg="dark" expand={'lg'} className="mb-3" variant='dark'>
+        <Navbar key={'lg'} bg="dark" expand={'lg'} className={styles.Navbar} variant='dark' >
             <Container>
                 <Navbar.Brand className='d-flex justify-content gap-2' onClick={()=>navigate('/')} style={{cursor : 'pointer'}}>
                     <Logo
