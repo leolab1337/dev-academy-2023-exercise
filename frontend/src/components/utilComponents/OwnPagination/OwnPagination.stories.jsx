@@ -1,4 +1,4 @@
-import OwnPagination from "../../components/utilComponents/OwnPagination";
+import OwnPagination from "./OwnPagination";
 
 export default {
     title: 'utilComponents/OwnPagination',
