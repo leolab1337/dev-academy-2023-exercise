@@ -1,8 +1,8 @@
 import { v4 as uuid } from 'uuid';
 import styles from './Stations.module.css'
-import {useLocation, useNavigate} from "react-router";
+import {useNavigate} from "react-router";
 import useObjectArraySort from "../../hooks/useObjectArraySort";
-import {routeConfig, RoutePaths} from "../router/routeConfig";
+import {RoutePaths} from "../router/routeConfig";
 
 /**
  * StationList - a functional component that displays a list of stations with the ability to sort by column and delete a station.
