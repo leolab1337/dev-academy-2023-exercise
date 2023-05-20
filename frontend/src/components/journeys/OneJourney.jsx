@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router";
-import {fetchOneById} from "../../api/api";
 import {v4 as uuid} from "uuid";
 import {changeStringDateToDate} from "../../utils/changeStringDateToDate";
+import {getOneJourneyById} from "../../api/joyrneys";
 
 /**
  * OneJourney is a functional component that displays information about a single journey.
@@ -18,7 +18,7 @@ const OneJourney = () => {
     let [journeyObject,setJourneyObject] = useState({});
 
     useEffect( ()=>{
-        fetchOneById(`${process.env.REACT_APP_SERVER_URL}/journeys/${journeyID}`).then(r=>{
+        getOneJourneyById(journeyID).then(r=>{
             if(r.isSuccess === true){
                 setJourneyObject(changeStringDateToDate(r.result[0]));
                 setFetchError(null);
@@ -31,7 +31,6 @@ const OneJourney = () => {
 
     },[navigate,journeyID]);
 
-    // const goToStation = stationID => navigate(`${process.env.REACT_APP_SERVER_URL}/stations/${stationID}`);
     const goToStation = stationID => navigate(`/stations/${stationID}`);
 
     return (

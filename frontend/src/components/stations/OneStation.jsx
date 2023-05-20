@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {v4 as uuid} from "uuid";
 import {useNavigate, useParams} from "react-router";
-import {fetchOneById} from "../../api/api";
 import Map from "../map/Map";
+import {getOneStationById} from "../../api/stations";
 
 /**
  * A component that displays the details of a single station, including its location on a map.
@@ -19,7 +19,7 @@ const OneStation = () => {
     const [stationObject,setStationObject] = useState({});
 
     useEffect( ()=>{
-        fetchOneById(`${process.env.REACT_APP_SERVER_URL}/stations/${stationID}`).then(r=>{
+        getOneStationById(stationID).then(r=>{
             if(r.isSuccess === true){
                 setStationObject(r.result[0]);
             }

@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {deleteById, fetchAllData} from "../../api/api";
 import {OwnPagination} from "../utilComponents/OwnPagination/OwnPagination";
 import Table from "../utilComponents/Table";
-import {useLocation, useNavigate} from "react-router";
+import {useNavigate} from "react-router";
+import {deleteJourneyById, getAllJourneys} from "../../api/joyrneys";
 
 /**
  * JourneysMain is a functional component that displays a table of journeys data, with pagination.
@@ -16,12 +16,12 @@ const JourneysMain = () => {
 
     const [fetchError,setFetchError] = useState(null);
     const [signal,sendSignal] = useState(false);
-
     const navigate = useNavigate();
-    const { pathname } = useLocation();
-    const openJourney = id => navigate(`${pathname}/${id}`);
-    const deleteJourneyById = id => {
-        window.confirm('Are you sure?') && deleteById(`${process.env.REACT_APP_SERVER_URL}/journeys/${id}`).then(
+
+    const openJourney = id => navigate(`/journeys/${id}`);
+
+    const deleteJourneyByIdLocal = id => {
+        window.confirm('Are you sure?') && deleteJourneyById(id).then(
             result => result && result.isSuccess ? sendSignal(prevState => !prevState) : alert('some problem with deleting data'))
     }
 
@@ -30,7 +30,7 @@ const JourneysMain = () => {
     const [totalPages, setTotalPages] = useState(1);
 
     useEffect( ()=>{
-        fetchAllData(`${process.env.REACT_APP_SERVER_URL}/journeys?pageSize=${pageSize}&pageNumber=${pageNumber}`).then(r=>{
+        getAllJourneys(pageSize,pageNumber).then(r=>{
             if( r !== null){
                 setJourneys(r.result);
                 setJourneysColumns(Object.keys(r.result[0]));
@@ -57,7 +57,7 @@ const JourneysMain = () => {
                 <Table rows={journeys}
                        columns={journeysColumns}
                        openRow={openJourney}
-                       deleteRow={deleteJourneyById}
+                       deleteRow={deleteJourneyByIdLocal}
                 />
             </div>
         }

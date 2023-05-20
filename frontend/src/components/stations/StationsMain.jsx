@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {deleteById, fetchAllData, postNewOne} from "../../api/api";
+import {useEffect, useState} from 'react';
 import StationList from "./StationList";
 import {Collapse} from "react-bootstrap";
 import AddNewStation from "./AddNewStation";
 import {OwnPagination} from "../utilComponents/OwnPagination/OwnPagination";
+import {deleteStationById, getAllStations, postNewStation} from "../../api/stations";
 
 
 /**
@@ -36,8 +36,8 @@ import {OwnPagination} from "../utilComponents/OwnPagination/OwnPagination";
      * @param {string} id - The ID of the station to be deleted.
      * @returns {void} - This function does not return a value.
      */
-    const deleteStationById = (id) => {
-        deleteById(`${process.env.REACT_APP_SERVER_URL}/stations/${id}`).then(r=>{
+    const deleteStationByIdLocal = (id) => {
+        deleteStationById(id).then(r=>{
             if(r != null && r.isSuccess){
                 // alert('data was successfully deleted');
                 sendSignal(prevState => !prevState);
@@ -50,12 +50,13 @@ import {OwnPagination} from "../utilComponents/OwnPagination/OwnPagination";
     }
 
     /**
-     * postNewStation - a function that posts a new station to the server.
+     * postNewStationLocal - a function that posts a new station to the server.
      * @param {Object} reqObject - An object that contains the new station data to be posted to the server.
      * @returns {void} - This function does not return a value.
      */
-    const postNewStation = (reqObject) => {
-        postNewOne(`${process.env.REACT_APP_SERVER_URL}/stations`,reqObject).then(r=>{
+    const postNewStationLocal = (reqObject) => {
+        // postNewOne(`${process.env.REACT_APP_SERVER_URL}/stations`,reqObject).then(r=>{
+        postNewStation(reqObject).then(r=>{
                 if(r != null && r.isSuccess){
                     alert('data was successfully added');
                     sendSignal(prevState => !prevState);
@@ -71,7 +72,7 @@ import {OwnPagination} from "../utilComponents/OwnPagination/OwnPagination";
     }
 
     useEffect( ()=>{
-       fetchAllData(`${process.env.REACT_APP_SERVER_URL}/stations?pageSize=${pageSize}&pageNumber=${pageNumber}`).then(r=>{
+       getAllStations(pageSize,pageNumber).then(r=>{
            if( r !== null){
                setStations(r.result);
                setStationsColumns(Object.keys(r.result[0]));
@@ -127,13 +128,13 @@ import {OwnPagination} from "../utilComponents/OwnPagination/OwnPagination";
                     </div>
 
                     {
-                        stations && <StationList stations={stations} stationsColumns={stationsColumns} deleteStationById={deleteStationById}/>}
+                        stations && <StationList stations={stations} stationsColumns={stationsColumns} deleteStationById={deleteStationByIdLocal}/>}
                 </div>
             </Collapse>
 
             <Collapse in={openPostNew}>
                 <div>
-                    <AddNewStation postNewStation={postNewStation}/>
+                    <AddNewStation postNewStation={postNewStationLocal}/>
                 </div>
             </Collapse>
 
