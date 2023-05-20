@@ -4,6 +4,7 @@ import {useNavigate} from "react-router";
 import { ReactComponent as Logo } from '../../../../img/logo1.svg';
 
 import styles from './Navbar.module.css'
+import {RoutePaths} from "../../../router/routeConfig";
 
 /**
  * A component that displays a responsive navbar with links to the stations and journeys pages.
@@ -38,8 +39,8 @@ export const Navbar2 = memo(() => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav className="justify-content-end flex-grow-1 pe-3">
-                            <Nav.Link onClick={()=>navigate('/stations')} style={{cursor : 'pointer'}}>Stations</Nav.Link>
-                            <Nav.Link onClick={()=>navigate('/journeys')} style={{cursor : 'pointer'}}>Journeys</Nav.Link>
+                            <Nav.Link onClick={()=>navigate(RoutePaths.STATIONS)} style={{cursor : 'pointer'}}>Stations</Nav.Link>
+                            <Nav.Link onClick={()=>navigate(RoutePaths.JOURNEYS)} style={{cursor : 'pointer'}}>Journeys</Nav.Link>
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>
