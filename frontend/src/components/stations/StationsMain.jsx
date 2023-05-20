@@ -89,6 +89,7 @@ import {OwnPagination} from "../utilComponents/OwnPagination";
     useEffect(()=>{openPostNew && setOpenList(false)},[openPostNew]);
 
 
+
     return (
         <>
             <br/>
@@ -101,10 +102,9 @@ import {OwnPagination} from "../utilComponents/OwnPagination";
                 >
                     {openList ? 'Click to close stations list' : 'Click to open stations list'}
                 </button>
-
                 <button
                     onClick={() => setOpenPostNew(!openPostNew)}
-                    aria-controls="stations list"
+                    aria-controls="new post"
                     aria-expanded={openPostNew}
                 >
                     {openPostNew ? 'Click to close new post form' : 'Click to open new post form'}
