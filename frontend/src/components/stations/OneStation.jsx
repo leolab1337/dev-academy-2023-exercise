@@ -3,6 +3,7 @@ import {v4 as uuid} from "uuid";
 import {useNavigate, useParams} from "react-router";
 import Map from "../map/Map";
 import {getOneStationById} from "../../api/stations";
+import {RoutePaths} from "../router/routeConfig";
 
 /**
  * A component that displays the details of a single station, including its location on a map.
@@ -24,7 +25,7 @@ const OneStation = () => {
                 setStationObject(r.result[0]);
             }
             else{
-                navigate('/404');
+                navigate(RoutePaths.NOT_FOUND);
             }
         }).catch(e => setFetchError(e))
     },[navigate,stationID]);

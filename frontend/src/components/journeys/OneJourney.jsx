@@ -3,6 +3,7 @@ import {useNavigate, useParams} from "react-router";
 import {v4 as uuid} from "uuid";
 import {changeStringDateToDate} from "../../utils/changeStringDateToDate";
 import {getOneJourneyById} from "../../api/joyrneys";
+import {RoutePaths} from "../router/routeConfig";
 
 /**
  * OneJourney is a functional component that displays information about a single journey.
@@ -24,14 +25,14 @@ const OneJourney = () => {
                 setFetchError(null);
             }
             else{
-                navigate('/404');
+                navigate(RoutePaths.NOT_FOUND);
             }
         }).catch(e => setFetchError(e));
 
 
     },[navigate,journeyID]);
 
-    const goToStation = stationID => navigate(`/stations/${stationID}`);
+    const goToStation = stationID => navigate(`/${RoutePaths.STATIONS}/${stationID}`);
 
     return (
         <>

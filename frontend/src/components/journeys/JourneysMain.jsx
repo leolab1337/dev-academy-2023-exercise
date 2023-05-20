@@ -3,10 +3,10 @@ import {OwnPagination} from "../utilComponents/OwnPagination/OwnPagination";
 import Table from "../utilComponents/Table";
 import {useNavigate} from "react-router";
 import {deleteJourneyById, getAllJourneys} from "../../api/joyrneys";
+import {RoutePaths} from "../router/routeConfig";
 
 /**
  * JourneysMain is a functional component that displays a table of journeys data, with pagination.
- * @param {object} props - The props for the component.
  * @return {JSX.Element} - A JSX element representing the UI for the JourneysMain component.
  */
 const JourneysMain = () => {
@@ -18,7 +18,7 @@ const JourneysMain = () => {
     const [signal,sendSignal] = useState(false);
     const navigate = useNavigate();
 
-    const openJourney = id => navigate(`/journeys/${id}`);
+    const openJourney = id => navigate(`/${RoutePaths.JOURNEYS}/${id}`);
 
     const deleteJourneyByIdLocal = id => {
         window.confirm('Are you sure?') && deleteJourneyById(id).then(

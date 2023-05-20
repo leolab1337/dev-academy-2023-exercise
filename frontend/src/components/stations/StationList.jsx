@@ -2,6 +2,7 @@ import { v4 as uuid } from 'uuid';
 import styles from './Stations.module.css'
 import {useLocation, useNavigate} from "react-router";
 import useObjectArraySort from "../../hooks/useObjectArraySort";
+import {routeConfig, RoutePaths} from "../router/routeConfig";
 
 /**
  * StationList - a functional component that displays a list of stations with the ability to sort by column and delete a station.
@@ -14,8 +15,8 @@ const StationList = ({stations=[],stationsColumns,deleteStationById}) => {
 
 
     const navigate = useNavigate();
-    const { pathname } = useLocation();
-    const onClick = id => navigate(`${pathname}/${id}`);
+    const onClick = id => navigate(`/${RoutePaths.STATIONS}/${id}`);
+
     const [stationsLocal, handleObjectArraySort] = useObjectArraySort(stations, stationsColumns[0]);
 
     return (
