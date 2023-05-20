@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {deleteById, fetchAllData} from "../../api/api";
-import {OwnPagination} from "../utilComponents/OwnPagination";
+import {OwnPagination} from "../utilComponents/OwnPagination/OwnPagination";
 import Table from "../utilComponents/Table";
 import {useLocation, useNavigate} from "react-router";
 
