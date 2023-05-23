@@ -1,5 +1,3 @@
-const stationsService = require("../services/stations.service");
-
 class BaseController{
 
     constructor(service) {
