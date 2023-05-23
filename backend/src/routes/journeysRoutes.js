@@ -1,5 +1,5 @@
 const express = require("express");
-const journeyCrudController = require("../controllers/journeysCrud");
+const journeyCrudController = require("../controllers/journeys.controller");
 const {handleGetResp, handleDeleteResp} = require("../middlewares/reqResHelper");
 const router = express.Router();
 

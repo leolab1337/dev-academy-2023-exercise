@@ -8,7 +8,7 @@ import {deleteStationById, getAllStations, postNewStation} from "../../api/stati
 
 /**
  * StationsMain - a functional component that displays a list of stations, allows the user to add a new station, and
- * allows the user to delete a station from the list. The component uses the `deleteStationById` and `postNewStation`
+ * allows the user to delete a station from the list. The component uses the `deleteById` and `postNew`
  * functions to delete and add stations, respectively. It also uses the `signal` state and the `sendSignal` function to
  * trigger a re-fetch of the list of stations from the server whenever a station is added or deleted.
  * @returns {JSX.Element} - A JSX component that displays a list of stations, a form for adding a new station, and buttons for deleting and adding stations.
@@ -32,7 +32,7 @@ import {deleteStationById, getAllStations, postNewStation} from "../../api/stati
 
 
     /**
-     * deleteStationById - a function that deletes a station from the server by its ID.
+     * deleteById - a function that deletes a station from the server by its ID.
      * @param {string} id - The ID of the station to be deleted.
      * @returns {void} - This function does not return a value.
      */
