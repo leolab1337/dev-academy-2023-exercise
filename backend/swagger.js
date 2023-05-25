@@ -1,8 +1,7 @@
 const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
-
-const app = express();
+const router = express.Router();
 
 // Swagger set up
 const swaggerDefinition = {
@@ -571,13 +570,12 @@ const options = {
 // Initialize swagger-jsdoc -> returns validated swagger spec in json format
 const swaggerSpec = swaggerJSDoc(options);
 
-// Serve swagger docs the way you like (Recommendation: swagger-tools)
-app.get('/api-docs.json', function(req, res) {
+// // Serve swagger docs the way you like (Recommendation: swagger-tools)
+router.get('/json', function(req, res) {
     res.setHeader('Content-Type', 'application/json');
     res.send(swaggerSpec);
 });
 
-// Serve the Swagger UI on the root path
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+router.use("/",swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-module.exports = app;
+module.exports = router;

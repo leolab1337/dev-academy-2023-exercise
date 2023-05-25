@@ -4,9 +4,9 @@ const cors = require('cors');
 const path = require("path");
 const CSVHandler = require('./src/services/CsvHandler');
 const csvHandler = new CSVHandler();
-const app = require('./swagger');
-// const app = express();
+// const app = require('./swagger');
 
+const app = express();
 
 app.use(express.json());
 app.use(
@@ -25,6 +25,8 @@ app.use("/journeys", require("./src/routes/journeysRoutes"));
 
 app.use("/hello", require("./src/routes/greetingRoute"));
 
+app.use("/api-docs", require("./swagger"));
+
 
 app.listen(process.env.SERVER_PORT, () => {
     displayLinks();
@@ -38,3 +40,5 @@ function displayLinks(){
     console.log(`HOME: http://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}/`);
     console.log("----------------------");
 }
+
+
