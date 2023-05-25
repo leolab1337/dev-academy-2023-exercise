@@ -20,6 +20,11 @@
 function addParams(baseString, params) {
     let paramString = '';
 
+    if(!Object.keys(params).length) return baseString;
+
+    // Check if the baseString already contains query parameters
+    const hasQueryParams = baseString.includes('?');
+
     // Loop through the params object and construct the parameter string
     for (const key in params) {
         if (params.hasOwnProperty(key)) {
@@ -30,8 +35,13 @@ function addParams(baseString, params) {
     // Remove the trailing '&' character
     paramString = paramString.slice(0, -1);
 
-    // Concatenate the base string and parameter string
-    return `${baseString}?${paramString}`;
+    // Construct the final URL
+    if (hasQueryParams) {
+        return `${baseString}&${paramString}`;
+    } else {
+        return `${baseString}?${paramString}`;
+    }
 }
 
 module.exports = addParams;
+
