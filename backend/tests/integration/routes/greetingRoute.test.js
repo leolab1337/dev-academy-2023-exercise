@@ -1,5 +1,5 @@
 const request  = require('supertest');
-const {app,appRoutes}  = require("../../server");
+const {app,appRoutes}  = require("../../../server");
 
 const greetingRoute = appRoutes.greeting
 

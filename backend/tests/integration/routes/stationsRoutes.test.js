@@ -1,8 +1,8 @@
 const request = require('supertest');
-const { app, appRoutes } = require("../../server");
+const { app, appRoutes } = require("../../../server");
 const chai = require('chai');
-const addParams = require("../../src/utils/addParams");
-const addIdToPath = require("../../src/utils/addIdToPath");
+const addParams = require("../../../src/utils/addParams");
+const addIdToPath = require("../../../src/utils/addIdToPath");
 
 const expect = chai.expect;
 const stationsRoute = appRoutes.stations;
